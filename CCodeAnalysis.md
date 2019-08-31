@@ -20,7 +20,6 @@
  ```
  and returning NULL. It would be good idea to do a NULL check to make sure that 
  that it is successful or not.
- 
  [Common Weakness Enumeration](https://cwe.mitre.org/data/definitions/789.html)
  
 2. The other problem with this allocation is 4 * n bytes (assuming float as 4 byte. 

@@ -9,7 +9,7 @@
  1.  Malloc is depending on public parameter n which is of type int, so passing 
  	  negative or large value could lead to no memory allocation
 
- ```
+ ```c
  void calc_and_print(double *v, double *w, float *z, float a, int n) {
  		double *b;
  		
@@ -32,7 +32,7 @@
  
 
 
- ```
+ ```c
   keep-learnings-MacBook-Pro:Ccodeanalysis keep_learning$ clang Helloworld.c 
   keep-learnings-MacBook-Pro:Ccodeanalysis keep_learning$ clang++ Helloworld.c 
       clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is      deprecated [-Wdeprecated]
@@ -48,7 +48,7 @@ Helloworld.c:24:9: error: assigning to 'double *' from incompatible type 'void *
    possible reading garbage data or program crash. 
    [Common Weakness Enumeration](https://cwe.mitre.org/data/definitions/416.html)
 
-```
+```c
  if (n > 10) {
       free(b);
   }
@@ -63,7 +63,7 @@ Helloworld.c:24:9: error: assigning to 'double *' from incompatible type 'void *
    and no check on a. What if a is very small and near to 0 or 0.
 
 
-```
+```c
 void magic_product(double *v, double *w, float *z, float a, int n, double *b) 
 {
   for (int i = 0; i < n/2; i++) 
@@ -79,17 +79,15 @@ void magic_product(double *v, double *w, float *z, float a, int n, double *b)
 My C programming experience got me this far, but now it is good time to  [fuzz](https://
 en.wikipedia.org/wiki/Fuzzing) it.
 
-
-###libFuzzer and AddressSanitizer
+### libFuzzer and AddressSanitizer:
 	This space is for libfuzzer
   
 
-
-###Static Analysis
+### Static Analysis
 Static analysis is a program analysis technique in which we approximate the run time 
 behaviour of program without executing it. I am using [infer](https://fbinfer.com/). 
 
-```
+```c
 keep-learnings-MacBook-Pro:Ccodeanalysis keep_learning$ infer run -- clang Helloworld.c 
 Capturing in make/cc mode...
 Found 1 source file to analyze in /Users/keep_learning/Mukesh/Github/Ccodeanalysis/infer-out

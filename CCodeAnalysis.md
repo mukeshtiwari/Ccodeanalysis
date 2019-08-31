@@ -9,7 +9,7 @@
  1.  Malloc is depending on public parameter n which is of type int, so passing 
  	  negative or large value could lead to no memory allocation
 
- ```c
+ ```
  void calc_and_print(double *v, double *w, float *z, float a, int n) {
  		double *b;
  		
@@ -32,7 +32,7 @@
  
 
 
- ```c
+ ```
   keep-learnings-MacBook-Pro:Ccodeanalysis keep_learning$ clang Helloworld.c 
   keep-learnings-MacBook-Pro:Ccodeanalysis keep_learning$ clang++ Helloworld.c 
       clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is      deprecated [-Wdeprecated]
@@ -48,7 +48,7 @@ Helloworld.c:24:9: error: assigning to 'double *' from incompatible type 'void *
    possible reading garbage data or program crash. 
    [Common Weakness Enumeration](https://cwe.mitre.org/data/definitions/416.html)
 
-```c
+```
  if (n > 10) {
       free(b);
   }
@@ -63,7 +63,7 @@ Helloworld.c:24:9: error: assigning to 'double *' from incompatible type 'void *
    and no check on a. What if a is very small and near to 0 or 0.
 
 
-```c
+```
 void magic_product(double *v, double *w, float *z, float a, int n, double *b) 
 {
   for (int i = 0; i < n/2; i++) 
@@ -89,7 +89,7 @@ en.wikipedia.org/wiki/Fuzzing) it.
 Static analysis is a program analysis technique in which we approximate the run time 
 behaviour of program without executing it. I am using [infer](https://fbinfer.com/). 
 
-```c
+```
 keep-learnings-MacBook-Pro:Ccodeanalysis keep_learning$ infer run -- clang Helloworld.c 
 Capturing in make/cc mode...
 Found 1 source file to analyze in /Users/keep_learning/Mukesh/Github/Ccodeanalysis/infer-out
@@ -138,7 +138,7 @@ keep-learnings-MacBook-Pro:Cco
 It has found 3 issues which is kind of nice. When I ran the infer on Improved.c, then it 
 showed
 
-```c
+```
 
 keep-learnings-MacBook-Pro:Ccodeanalysis keep_learning$ infer run -- clang -c Improved.c 
 Capturing in make/cc mode...

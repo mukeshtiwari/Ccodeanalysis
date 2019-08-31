@@ -75,8 +75,8 @@ void magic_product(double *v, double *w, float *z, float a, int n, double *b)
 }
 ```
 
-My C programming experience got me this far, but now it is good time to  [fuzz](https://
-en.wikipedia.org/wiki/Fuzzing) it.
+My C programming experience got me this far, but now it is good time to  
+[fuzz](https://en.wikipedia.org/wiki/Fuzzing) it.
 
 ### libFuzzer and AddressSanitizer:
 	This space is for libfuzzer

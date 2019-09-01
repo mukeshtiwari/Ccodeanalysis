@@ -20,7 +20,6 @@
  ```
  and returning NULL. It would be good idea to do a NULL check to make sure that 
  that it is successful or not.
- 
  [Common Weakness Enumeration](https://cwe.mitre.org/data/definitions/789.html)
  
 2. The other problem with this allocation is 4 * n bytes (assuming float as 4 byte. 
@@ -76,8 +75,8 @@ void magic_product(double *v, double *w, float *z, float a, int n, double *b)
 }
 ```
 
-My C programming experience got me this far, but now it is good time to  [fuzz](https://
-en.wikipedia.org/wiki/Fuzzing) it.
+My C programming experience got me this far, but now it is good time to  
+[fuzz](https://en.wikipedia.org/wiki/Fuzzing) it.
 
 ### libFuzzer and AddressSanitizer:
 	This space is for libfuzzer

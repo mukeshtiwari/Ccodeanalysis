@@ -37,7 +37,7 @@ void calc_and_print(double *v, double *w, float *z, float a, int n) {
 
 }
 
-int LLVMFuzzerTestOneInput(double *v, double *w, float *z, float a, int n) {
+extern "C" int LLVMFuzzerTestOneInput(double *v, double *w, float *z, float a, int n) {
   calc_and_print(v, w, z, a, n);
   return 0;
 }
